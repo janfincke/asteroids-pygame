@@ -29,6 +29,11 @@ def main():
             entity.update(dt)
         for entity in drawable:
             entity.draw(screen)
+            
+        for asteroid in asteroids:
+            if player.collides_with(asteroid):
+                print("Game over!")
+                return
         
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
